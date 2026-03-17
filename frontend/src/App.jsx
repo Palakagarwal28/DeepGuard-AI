@@ -1,4 +1,9 @@
 import { useState } from 'react'
+import ResultCard from './components/ResultCard';
+import AboutModal from './components/AboutModal';
+
+const API_BASE_URL = 'http://localhost:8000/api/v1';
+
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
