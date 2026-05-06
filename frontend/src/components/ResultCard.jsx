@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, ShieldAlert, Download } from 'lucide-react';
+import HeatmapComparison from './HeatmapComparison';
 
-export default function ResultCard({ result, onDownload }) {
+export default function ResultCard({ result, onDownload, originalFile }) {
   if (!result) return null;
 
   const isFake = result.result === "Fake";
@@ -64,6 +65,15 @@ export default function ResultCard({ result, onDownload }) {
              </ul>
            </div>
         </div>
+      )}
+
+      {/* Heatmap Comparison Section */}
+      {result.heatmap_url && originalFile && originalFile.type.startsWith('image/') && (
+        <HeatmapComparison 
+          originalSrc={URL.createObjectURL(originalFile)} 
+          heatmapSrc={result.heatmap_url} 
+          alt="AI Analysis"
+        />
       )}
     </motion.div>
   );
